@@ -40,17 +40,6 @@ public class TransacaoController {
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> parar(@PathVariable("id") String id){
-        try{
-            feignTransacaoClient.pararTransacao(id);
-            return ResponseEntity.ok("Opa deu tudo Certo!");/*200*/
-        }catch (FeignException.FeignServerException | FeignException.FeignClientException exception){
-            exception.printStackTrace();
-            return new ResponseEntity(HttpStatus.BAD_REQUEST);/*400*/
-        }
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<?> listarRecentes(@PathVariable String id) {
 
