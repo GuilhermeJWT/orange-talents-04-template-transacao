@@ -15,7 +15,7 @@ public class ModelTransacao implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    private Long id;
+    private String id;
 
     @Positive(message = "O Valor deve ser maior que 0!")
     @NotNull(message = "O Valor deve ser Informado!")
@@ -29,7 +29,7 @@ public class ModelTransacao implements Serializable {
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private ModelCartao cartao;
 
-    public ModelTransacao(Long id, BigDecimal valor,LocalDateTime efetivadaEm, ModelEstabelecimento estabelecimento, ModelCartao cartao) {
+    public ModelTransacao(String id, BigDecimal valor,LocalDateTime efetivadaEm, ModelEstabelecimento estabelecimento, ModelCartao cartao) {
         this.id = id;
         this.valor = valor;
         this.estabelecimento = estabelecimento;
@@ -42,7 +42,14 @@ public class ModelTransacao implements Serializable {
 
     }
 
-    public Long getId() {
+    public ModelTransacao(String id, BigDecimal valor, ModelCartao cartao, ModelEstabelecimento estabelecimento, LocalDateTime efetivadaEm) {
+        this.id = id;
+        this.valor = valor;
+        this.cartao = cartao;
+        this.estabelecimento = estabelecimento;
+    }
+
+    public String getId() {
         return id;
     }
 
