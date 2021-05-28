@@ -37,16 +37,16 @@ public class ModelTransacao implements Serializable {
         this.efetivadaEm = efetivadaEm;
     }
 
-    @Deprecated
-    public ModelTransacao(){
-
-    }
-
     public ModelTransacao(String id, BigDecimal valor, ModelCartao cartao, ModelEstabelecimento estabelecimento, LocalDateTime efetivadaEm) {
         this.id = id;
         this.valor = valor;
         this.cartao = cartao;
         this.estabelecimento = estabelecimento;
+    }
+
+    @Deprecated
+    public ModelTransacao(){
+
     }
 
     public String getId() {
